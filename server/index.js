@@ -25,7 +25,7 @@ app.post('/', async(req, res) => {
     public_id: "avatar",
     allowed_formats: ['png', 'jpg', 'jpeg', 'svg', 'ico', 'jfif', 'webp'],
     }, 
-    function(error, result) {
+    function (error, result) {
         if(error){
             console.log(error);
         }

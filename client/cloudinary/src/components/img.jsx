@@ -16,6 +16,7 @@ import { face } from "@cloudinary/url-gen/qualifiers/focusOn";
     const myImage = cld.image(uploadedImg);
   
     myImage.resize(
+      //you can replace your thumbnail with fill()-to remove focus on face only
       thumbnail()
         .width(150)
         .height(150)
