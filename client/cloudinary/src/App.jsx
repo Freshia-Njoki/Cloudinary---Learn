@@ -1,11 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Img} from "./components/Img"
 
 function App() {
   const [files, setFile] = useState("");
   const [image, setImage] = useState("");
-  const [uploadedImg, setUpload] = useState("");
+  const [uploadedImage, setUpload] = useState("");
 
   const previewFiles = (file) => {
     const reader = new FileReader(); 
@@ -14,7 +15,8 @@ function App() {
     reader.onloadend = () => {
       setImage(reader.result)
     }
-    console.log(image);
+    // console.log(image);
+    return image;
   }
 
   const handleChange = (e) => {
@@ -27,8 +29,9 @@ function App() {
     e.preventDefault();
     const result = await axios.post("http://localhost:8001", {image: image})
     try {
-      const uploadedImage = result.data.public_id;   
-      setUpload(uploadedImg)
+      const uploadedImg = result.data.public_id;   
+      setUpload(uploadedImg);
+      console.log("clicked");
     } catch (error) {
       console.log(error);     
     }
@@ -44,6 +47,8 @@ function App() {
     </form>
     </div>
     <img src={image} alt="" />
+
+    {uploadedImage && <Img uploadedImg={uploadedImage} />}
       
     </>
   )
