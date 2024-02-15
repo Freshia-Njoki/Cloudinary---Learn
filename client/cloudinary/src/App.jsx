@@ -36,7 +36,6 @@ function App() {
       console.log(error);     
     }
   }
-
   return (
     <>
     <div className="container mt-5 align-items-center justify-content-center">
@@ -48,8 +47,13 @@ function App() {
     </div>
     <img src={image} alt="" />
 
-    {uploadedImage && <Img uploadedImg={uploadedImage} />}
+    {/* {uploadedImage && <Img uploadedImg={uploadedImage} />} */}
       
+    <Img uploadedImg={uploadedImage} />
+    <Img uploadedImg={uploadedImage} />
+    <Img uploadedImg={uploadedImage} />
+    <Img uploadedImg={uploadedImage} />
+    <Img uploadedImg={uploadedImage} />
     </>
   )
 }

@@ -1,8 +1,12 @@
 import {AdvancedImage} from '@cloudinary/react';
 import {Cloudinary} from "@cloudinary/url-gen";
-import { thumbnail} from "@cloudinary/url-gen/actions/resize";
+//import required actions
+import { thumbnail, fill} from "@cloudinary/url-gen/actions/resize";
+//import required qualifiers
 import { focusOn} from "@cloudinary/url-gen/qualifiers/gravity";
 import { face } from "@cloudinary/url-gen/qualifiers/focusOn";
+//plugins
+import {lazyload, placeholder} from '@cloudinary/react';
 
   const Img = ({ uploadedImg }) => {
     // Create a Cloudinary instance and set your cloud name.
@@ -25,7 +29,7 @@ import { face } from "@cloudinary/url-gen/qualifiers/focusOn";
   
   return (
     <>
-      <AdvancedImage cldImg={myImage} />
+      <AdvancedImage cldImg={myImage}  plugins={[lazyload(), placeholder({mode: 'predominant-color'})]}/>
     </>
   );
 };
